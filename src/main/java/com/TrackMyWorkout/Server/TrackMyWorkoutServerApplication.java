@@ -1,13 +1,13 @@
-package com.trackmyworkout.microservices;
+package com.TrackMyWorkout.Server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TmwMicroservicesApplication {
+public class TrackMyWorkoutServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TmwMicroservicesApplication.class, args);
+		SpringApplication.run(TrackMyWorkoutServerApplication.class, args);
 	}
 
 }

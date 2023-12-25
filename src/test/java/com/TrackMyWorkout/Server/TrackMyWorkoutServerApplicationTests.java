@@ -1,10 +1,10 @@
-package com.trackmyworkout.microservices;
+package com.TrackMyWorkout.Server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TmwMicroservicesApplicationTests {
+class TrackMyWorkoutServerApplicationTests {
 
 	@Test
 	void contextLoads() {
