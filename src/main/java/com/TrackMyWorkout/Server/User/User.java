@@ -20,6 +20,9 @@ public class User{
     }
 
     public User() {
-
+        this.userName = null;
+        this.passWord = null;
+        this.email = null;
+        this.verified = false;
     }
 }
