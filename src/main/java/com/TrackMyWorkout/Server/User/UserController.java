@@ -20,8 +20,7 @@ public class UserController{
 
     @GetMapping("/new_user")
     public ResponseEntity<User> createUser(){
-        User user = new User("sampleUser", "123", "user@email.com");
-        this.userService.saveNewUser(user);
+        User user = this.userService.saveNewUser("sampleUser", "samplePassword", "user@email.com");
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 }

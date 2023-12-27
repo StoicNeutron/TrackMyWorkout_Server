@@ -2,7 +2,7 @@ package com.TrackMyWorkout.Server.User;
 
 import jakarta.persistence.*;
 
-@Entity(name ="User")
+@Entity(name ="users")
 public class User{
 
     @Id
@@ -14,6 +14,8 @@ public class User{
     private String userName;
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
     private String passWord;
+    @Column(name = "salt", nullable = false, columnDefinition = "TEXT")
+    private String salt;
     @Column(name = "email", nullable = false, columnDefinition = "TEXT")
     private String email;
     @Column(name = "verified", nullable = false, columnDefinition = "BOOLEAN")
@@ -22,13 +24,15 @@ public class User{
     public User() {
         this.userName = null;
         this.passWord = null;
+        this.salt = null;
         this.email = null;
         this.verified = false;
     }
 
-    public User(String userName, String password, String email){
+    public User(String userName, String password, String salt, String email){
         this.userName = userName;
         this.passWord = password;
+        this.salt = salt;
         this.email = email;
     }
 }
