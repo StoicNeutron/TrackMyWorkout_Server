@@ -1,15 +1,15 @@
-package com.TrackMyWorkout.Server.User;
+package com.TrackMyWorkout.Server.Entities;
 
 import jakarta.persistence.*;
 
 @Entity(name ="users")
 public class User{
 
-    @Id
     @SequenceGenerator(name = "User_sequence", sequenceName = "User_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "User_sequence")
     @Column(name = "id")
     private Integer id;
+    @Id
     @Column(name = "userName", nullable = false, columnDefinition = "TEXT")
     private String userName;
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
@@ -34,5 +34,13 @@ public class User{
         this.passWord = password;
         this.salt = salt;
         this.email = email;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public String getPassword() {
+        return passWord;
     }
 }
