@@ -11,6 +11,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
+/**
+ * @author Samnang Thorn
+ */
 @Service
 public class UserService {
 

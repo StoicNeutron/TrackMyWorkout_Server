@@ -2,6 +2,9 @@ package com.TrackMyWorkout.Server.Entities;
 
 import jakarta.persistence.*;
 
+/**
+ * @author Samnang Thorn
+ */
 @Entity(name ="users")
 public class User{
 
@@ -36,11 +39,18 @@ public class User{
         this.email = email;
     }
 
+    public String getUserName() {
+        return userName;
+    }
     public String getSalt() {
         return salt;
     }
 
     public String getPassword() {
         return passWord;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
