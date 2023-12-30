@@ -1,5 +1,8 @@
 package com.TrackMyWorkout.Server.DTO;
 
+/**
+ * @author Samnang Thorn
+ */
 public class LoginRequestDTO{
 
     private String userName;
