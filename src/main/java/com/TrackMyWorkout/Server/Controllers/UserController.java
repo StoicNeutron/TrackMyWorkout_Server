@@ -2,6 +2,7 @@ package com.TrackMyWorkout.Server.Controllers;
 
 import com.TrackMyWorkout.Server.DTO.LoginRequestDTO;
 import com.TrackMyWorkout.Server.DTO.SignUpRequestDTO;
+import com.TrackMyWorkout.Server.Services.JwtService;
 import com.TrackMyWorkout.Server.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController{
 
     private final UserService userService;
+    private final JwtService jwtService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, JwtService jwtService) {
         this.userService = userService;
+        this.jwtService = jwtService;
     }
 
     @PostMapping (value = "/new_user", consumes = "application/json")
@@ -43,7 +46,7 @@ public class UserController{
         if(loginRequestDTO == null){
             return new ResponseEntity<>("Login Information Not Given!", HttpStatus.BAD_REQUEST);
         }
-        if(loginRequestDTO.getUserName() == null || loginRequestDTO.getPassWord() == null){
+        if(loginRequestDTO.getEmail() == null || loginRequestDTO.getPassWord() == null){
             return new ResponseEntity<>("Incomplete Login Information!", HttpStatus.BAD_REQUEST);
         }
         // end of safe check

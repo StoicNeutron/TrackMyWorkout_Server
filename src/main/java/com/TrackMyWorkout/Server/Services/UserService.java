@@ -1,6 +1,7 @@
 package com.TrackMyWorkout.Server.Services;
 
 import com.TrackMyWorkout.Server.DTO.LoginRequestDTO;
+import com.TrackMyWorkout.Server.Entities.Role;
 import com.TrackMyWorkout.Server.Entities.User;
 import com.TrackMyWorkout.Server.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +41,12 @@ public class UserService {
         }catch (NoSuchAlgorithmException e){
             //
         }
-        return userRepository.save(new User(userName, hashedPassword, salt, email));
+        return userRepository.save(new User(userName, hashedPassword, salt, email, Role.GUEST));
     }
 
     @Transactional
     public boolean authenticateUser(LoginRequestDTO loginRequestDTO){
-        User user = userRepository.findByUserName(loginRequestDTO.getUserName());
+        User user = userRepository.findByEmail(loginRequestDTO.getEmail());
         boolean valid = false;
         try{
             valid = sha256Hash(loginRequestDTO.getPassWord().concat(user.getSalt())).equals(user.getPassword());

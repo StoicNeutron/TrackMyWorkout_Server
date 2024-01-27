@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     // Auto Query generate by JPA
-    User findByUserName(String userName);
+    User findByEmail(String email);
 }

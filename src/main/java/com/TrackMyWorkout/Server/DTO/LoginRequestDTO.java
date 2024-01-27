@@ -5,16 +5,16 @@ package com.TrackMyWorkout.Server.DTO;
  */
 public class LoginRequestDTO{
 
-    private String userName;
+    private String email;
     private String passWord;
 
-    public LoginRequestDTO(String userName, String passWord) {
-        this.userName = userName;
+    public LoginRequestDTO(String email, String passWord) {
+        this.email = email;
         this.passWord = passWord;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
     public String getPassWord() {
