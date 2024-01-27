@@ -10,9 +10,9 @@ public class User{
 
     @SequenceGenerator(name = "User_sequence", sequenceName = "User_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "User_sequence")
-    @Column(name = "id")
-    private Integer id;
     @Id
+    @Column(name = "userId")
+    private Integer userId;
     @Column(name = "userName", nullable = false, columnDefinition = "TEXT")
     private String userName;
     @Column(name = "password", nullable = false, columnDefinition = "TEXT")
@@ -23,6 +23,9 @@ public class User{
     private String email;
     @Column(name = "verified", nullable = false, columnDefinition = "BOOLEAN")
     private boolean verified;
+    @Column(name = "role", nullable = false, columnDefinition = "TEXT")
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User() {
         this.userName = null;
@@ -32,11 +35,12 @@ public class User{
         this.verified = false;
     }
 
-    public User(String userName, String password, String salt, String email){
+    public User(String userName, String password, String salt, String email, Role role){
         this.userName = userName;
         this.passWord = password;
         this.salt = salt;
         this.email = email;
+        this.role = Role.GUEST;
     }
 
     public String getUserName() {
